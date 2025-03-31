@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        h3 {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Depression Prediction</h1>
+    <form method="POST">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" step="0.1" required>
+
+        <label for="cgpa">Cgpa:</label>
+        <input type="number" id="cgpa" name="cgpa" step="0.01" required>
+
+        <label for="have_you_ever_had_suicidal_thoughts_">Have you ever had suicidal thoughts?:</label>
+        <select id="have_you_ever_had_suicidal_thoughts_" name="have_you_ever_had_suicidal_thoughts_">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="workstudy_hours">Work study hours:</label>
+        <input type="number" id="workstudy_hours" name="workstudy_hours" step="0.1" required>
+
+        <label for="family_history_of_mental_illness">Family history of mental illness:</label>
+        <select id="family_history_of_mental_illness" name="family_history_of_mental_illness">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
